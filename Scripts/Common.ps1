@@ -53,3 +53,28 @@ function Get-GitBranch {
     Pop-Location
     return $branch
 }
+
+function Invoke-GitPush {
+    param (
+        [Parameter(Mandatory=$True)]
+        [ValidateScript({ Test-Path $_ })]
+        [String]$Repo,
+        [Parameter(Mandatory=$True)]
+        [String]$Branch,
+        [Parameter(Mandatory=$False)]
+        [AllowEmptyString()]
+        [String]$ToCommit = "",
+        [Parameter(Mandatory=$False)]
+        [String]$Remote = "origin"
+    )
+
+    $to = $ToCommit
+    if ([String]::IsNullOrWhitespace($ToCommit)) {
+        $to = "HEAD"
+    }
+
+    Push-Location $Repo
+    $params = "$ToCommit`:$Branch"
+    & git push $Remote $params
+    Pop-Location
+}
