@@ -1,13 +1,14 @@
-# SourceTree Custom Actions and GitLab
+# SourceTree Custom Actions
 
 ## Actions
 
-PowerShell scripts provide following custom actions to SourceTree to provide integration with GitLab:
+Scripts directory contains following custom actions:
 
 * View repo on GitLab
 * View commit on GitLab
 * View file commit on GitLab
 * View file on GitLab
+* Push commits to here
 
 ## Installation
 
@@ -28,6 +29,7 @@ View repo on GitLab | `-NonInteractive -ExecutionPolicy ByPass -File C:\SourceTr
 View commit on GitLab | `-NonInteractive -ExecutionPolicy ByPass -File C:\SourceTreeCustomActions\ViewThingsOnGitLab.ps1 -Repo $REPO -SHA $SHA -File $FILE -ViewCommit`
 View file on GitLab | `-NonInteractive -ExecutionPolicy ByPass -File C:\SourceTreeCustomActions\ViewThingsOnGitLab.ps1 -Repo $REPO -SHA $SHA -File $FILE -ViewFileCommit`
 View file commit on GitLab | `-NonInteractive -ExecutionPolicy ByPass -File C:\SourceTreeCustomActions\ViewThingsOnGitLab.ps1 -Repo $REPO -SHA $SHA -File $FILE -ViewFile`
+Push to here | `-NonInteractive -ExecutionPolicy ByPass -File C:\SourceTreeCustomActions\PushToHere.ps1 -Repo $REPO -SHA $SHA`
 
 ## Tests
 
