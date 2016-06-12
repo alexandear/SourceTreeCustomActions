@@ -6,10 +6,10 @@ function Get-WebRequestStatusCode {
         [String]$Url
     )
 
-    return Invoke-WebRequest $Url | % { $_.StatusCode }
+    return Invoke-WebRequest $Url | ForEach-Object { $_.StatusCode }
 }
 
-function Check-UrlStatus {
+function Test-UrlExist {
     param (
         [Parameter(Mandatory=$True)]
         [String]$Url

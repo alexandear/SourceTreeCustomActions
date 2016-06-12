@@ -1,6 +1,6 @@
 . "$PSScriptRoot\Common.ps1"
 
-function Parse-GitLabSsh {
+function Get-GitLabUrlFromGitSsh {
     param (
         [Parameter(Mandatory=$True)]
         [String]$OriginUrl
@@ -10,19 +10,19 @@ function Parse-GitLabSsh {
     $urlPath = $partsUrl -join("/")
 
     $remoteHttpUrl = "http://" + $urlPath
-    if (Check-UrlStatus $remoteHttpUrl) {
+    if (Test-UrlExist $remoteHttpUrl) {
         return $remoteHttpUrl
     }
 
     $remoteHttpsUrl = "https://" + $urlPath
-    if (Check-UrlStatus $remoteHttpsUrl) {
+    if (Test-UrlExist $remoteHttpsUrl) {
         return $remoteHttpsUrl
     }
 
     throw "Could not find GitLab url for remote: $OriginUrl"
 }
 
-function Parse-GitLabHttp {
+function Get-GitLabUrlFromGitHttp {
     param (
         [Parameter(Mandatory=$True)]
         [String]$OriginUrl
@@ -44,9 +44,9 @@ function Get-GitLabRemoteUrl {
     }
 
     if ($originUrl.StartsWith("git@")) {
-        return Parse-GitLabSsh $originUrl
+        return Get-GitLabUrlFromGitSsh $originUrl
     } elseIf ($originUrl.StartsWith("http://") -or $originUrl.StartsWith("https://")) {
-        return Parse-GitLabHttp $originUrl
+        return Get-GitLabUrlFromGitHttp $originUrl
     }
 
     throw "Could not parse git remote url: '$originUrl'"
