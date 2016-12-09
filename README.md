@@ -27,8 +27,8 @@ Menu caption | Parameters
 --------------------|-------------
 View repo on GitLab | `-NonInteractive -ExecutionPolicy ByPass -File C:\SourceTreeCustomActions\ViewThingsOnGitLab.ps1 -Repo $REPO -SHA $SHA -File $FILE -ViewRepo`
 View commit on GitLab | `-NonInteractive -ExecutionPolicy ByPass -File C:\SourceTreeCustomActions\ViewThingsOnGitLab.ps1 -Repo $REPO -SHA $SHA -File $FILE -ViewCommit`
-View file on GitLab | `-NonInteractive -ExecutionPolicy ByPass -File C:\SourceTreeCustomActions\ViewThingsOnGitLab.ps1 -Repo $REPO -SHA $SHA -File $FILE -ViewFileCommit`
-View file commit on GitLab | `-NonInteractive -ExecutionPolicy ByPass -File C:\SourceTreeCustomActions\ViewThingsOnGitLab.ps1 -Repo $REPO -SHA $SHA -File $FILE -ViewFile`
+View file on GitLab | `-NonInteractive -ExecutionPolicy ByPass -File C:\SourceTreeCustomActions\ViewThingsOnGitLab.ps1 -Repo $REPO -SHA $SHA -File $FILE -ViewFile`
+View file commit on GitLab | `-NonInteractive -ExecutionPolicy ByPass -File C:\SourceTreeCustomActions\ViewThingsOnGitLab.ps1 -Repo $REPO -SHA $SHA -File $FILE -ViewFileCommit`
 Push to here | `-NonInteractive -ExecutionPolicy ByPass -File C:\SourceTreeCustomActions\PushToHere.ps1 -Repo $REPO -SHA $SHA`
 
 ## Tests
